@@ -48,6 +48,7 @@ namespace ECS.Common
             public const string RECIRCULATION_CNT = "P_RECIRC_CNT";
             public const string SPS_POSITION = "P_SPS_LOC_CD";
             public const string REASON_CD = "P_SRT_RSN_CD";
+
             public const string SENSOR_YN = "P_CHUTE_SENS_RCG_YN";
 
             public const string INV_BCD = "P_INV_BCD";

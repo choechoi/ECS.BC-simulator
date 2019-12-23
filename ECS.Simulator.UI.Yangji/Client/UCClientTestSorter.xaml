@@ -1,0 +1,120 @@
+﻿<pt:UCFramePanel
+      xmlns:pt="clr-namespace:LGCNS.ezControl.Presentation;assembly=LGCNS.ezControl.Presentation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SMS.TEST.UI"
+      xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      x:Class="SMS.TEST.UI.UCClientTestSorter"
+      mc:Ignorable="d" Background="#FF262930"  >
+
+    <Grid Width="auto" Height="auto">
+        <local:UCConnection x:Name="ucConn" HorizontalAlignment="Left" Height="0" Margin="0,0,0,0" VerticalAlignment="Top" Width="0" />
+        <dx:SimpleButton x:Name="btnSocket" Content="Socket Clear" Margin="0,10,395,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Clear_16x16.png}" Click="btnSocket_Click" HorizontalAlignment="Right" Width="117" Height="30"/>
+        <dx:SimpleButton x:Name="btnReset" Content="Reset" Margin="0,11,310,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Reset_16x16.png}" Click="btnReset_Click" HorizontalAlignment="Right" Width="80" Height="30"/>
+        <dx:SimpleButton x:Name="btnStart" Content="Start" Margin="0,11,225,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Media_16x16.png}" Click="btnStart_Click" HorizontalAlignment="Right" Width="80" Height="30"/>
+        <dx:SimpleButton x:Name="btnStop" Content="Stop" Margin="0,10,140,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Cancel_16x16.png}" HorizontalAlignment="Right" Width="80" Height="30" Click="btnStop_Click" />
+        <dx:SimpleButton x:Name="btnBatch" Content="Create a batch" Margin="0,10,10,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Add_16x16.png}" Click="btnBatch_Click" HorizontalAlignment="Right" Width="125" Height="30"/>
+
+        <TabControl x:Name="tabControl" Margin="10,46,10,59">
+            <TabItem Header=" Status ">
+                <Grid Background="#FFE5E5E5">
+                    <dxg:GridControl x:Name="dxgStatus" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="10">
+                        <dxg:GridControl.View>
+                            <dxg:TableView ShowAutoFilterRow="True" ShowGroupPanel="False" AllowPerPixelScrolling="True" ShowTotalSummary="True" AllowCellMerge="False"/>
+                        </dxg:GridControl.View>
+                        <dxg:GridColumn Header="Parcel ID." Binding="{Binding PID, Mode=TwoWay}" Width="110">
+                            <dxg:GridColumn.HeaderStyle>
+                                <Style TargetType="dxg:BaseGridHeader">
+                                    <Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />
+                                    <Setter Property="Background" Value="LightSkyBlue" />
+                                </Style>
+                            </dxg:GridColumn.HeaderStyle>
+                        </dxg:GridColumn>
+                        <dxg:GridColumn Header="Customer" Binding="{Binding CST_NM, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn Header="SKU Code" Binding="{Binding SKU_CD, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn Header="SKU Name" Binding="{Binding SKU_NM, Mode=TwoWay}" Width="300"/>
+                        <dxg:GridColumn Header="Induction No." Binding="{Binding INDT_ID, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn Header="Chute No." Binding="{Binding INPUT_CHUTE_ID, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn Header="KIOSK Input" Binding="{Binding KIOSK, Mode=TwoWay}" Width="150" EditSettings="{dxe:DateSettings DisplayFormat='yyyy.MM.dd HH:mm:ss'}" />
+                        <dxg:GridColumn Header="Inducted" Binding="{Binding INDUCTED, Mode=TwoWay}" Width="150" EditSettings="{dxe:DateSettings DisplayFormat='yyyy.MM.dd HH:mm:ss'}" />
+                        <dxg:GridColumn Header="IPS Read" Binding="{Binding IPS, Mode=TwoWay}" Width="150" EditSettings="{dxe:DateSettings DisplayFormat='yyyy.MM.dd HH:mm:ss'}" />
+                        <dxg:GridColumn Header="Discharged" Binding="{Binding DISCHARGED, Mode=TwoWay}" Width="150" EditSettings="{dxe:DateSettings DisplayFormat='yyyy.MM.dd HH:mm:ss'}" />
+                        <dxg:GridColumn Header="Sorted Confirm" Binding="{Binding SORTED_CFM, Mode=TwoWay}" Width="150" EditSettings="{dxe:DateSettings DisplayFormat='yyyy.MM.dd HH:mm:ss'}" />
+                    </dxg:GridControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="  Error  ">
+                <Grid Background="#FFE5E5E5">
+                    <dx:SimpleButton x:Name="btnErrRetrieve" Content="Retrieve" Margin="0,10,10,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Refresh_16x16.png}" Click="btnErrRetrieve_Click" HorizontalAlignment="Right" Width="100" Height="30" />
+                    <dxg:GridControl x:Name="dxgErrResult" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="10,45,10,10">
+                        <dxg:GridControl.View>
+                            <dxg:TableView ShowAutoFilterRow="True" ShowGroupPanel="False" AllowPerPixelScrolling="True" ShowTotalSummary="True" AllowCellMerge="False"/>
+                        </dxg:GridControl.View>
+                        <dxg:GridColumn Header="Batch No." Binding="{Binding BTCH_SEQ, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn Header="Barcode No." Binding="{Binding BCR_NO, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn Header="Error Name." Binding="{Binding ERROR_NM, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn Header="Reason" Binding="{Binding PROS_RSLT_MSG, Mode=TwoWay}" Width="1000"/>
+                        <dxg:GridColumn Visible="False" Header="PID" Binding="{Binding PID, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn Visible="False" Header="Induction No." Binding="{Binding INDT_ID, Mode=TwoWay}" Width="110"/>
+                    </dxg:GridControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="  Result  ">
+                <Grid Background="#FFE5E5E5">
+                    <dx:SimpleButton x:Name="btnRetrieve" Content="Retrieve" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Glyph="{dx:DXImage Image=Refresh_16x16.png}" Click="btnRetrieve_Click" Width="100" Height="30" />
+                    <dxg:GridControl x:Name="dxgResult" AutoGenerateColumns="None" EnableSmartColumnsGeneration="True" Margin="10,45,10,10">
+                        <dxg:GridControl.View>
+                            <dxg:TableView ShowAutoFilterRow="True" ShowGroupPanel="False" AllowPerPixelScrolling="True" ShowTotalSummary="True" AllowCellMerge="True" EditorShowMode="MouseUpFocused"/>
+                        </dxg:GridControl.View>
+                        <dxg:GridColumn AllowCellMerge="True"  Header="Customer" Binding="{Binding CST_NM, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn AllowCellMerge="True"  Header="Chute No." Binding="{Binding INPUT_CHUTE_ID, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn AllowCellMerge="True"  Header="Box No." Binding="{Binding BOX_ID, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn AllowCellMerge="False"  Header="SKU Code" Binding="{Binding SKU_CD, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn AllowCellMerge="False"  Header="SKU Name" Binding="{Binding SKU_NM, Mode=TwoWay}" Width="300"/>
+                        <dxg:GridColumn AllowCellMerge="False"  Header="Induction No." Visible="False" Binding="{Binding INDT_ID, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn AllowCellMerge="False"  Header="PID" Visible="False" Binding="{Binding PID, Mode=TwoWay}" Width="110"/>
+                        <dxg:GridColumn AllowCellMerge="False"  Header="Input Mode" Visible="False" Binding="{Binding INPUT_MODE, Mode=TwoWay}" Width="110"/>
+                    </dxg:GridControl>
+                    <dxe:DateEdit Height="30" Margin="0,10,115,0" VerticalAlignment="Top" AllowDefaultButton="False" HorizontalAlignment="Right" Width="132">
+                        <dxe:ButtonInfo IsDefaultButton="True" >
+                            <dxe:ButtonInfo.ContentTemplate>
+                                <DataTemplate>
+                                    <Image  Height="16" Width="16" >
+                                        <Image.Source>
+                                            <BitmapImage UriSource="C:\LGCNS.ezControl.CJFC\Bin\Calendar_16x16.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </dxe:ButtonInfo.ContentTemplate>
+                        </dxe:ButtonInfo>
+                    </dxe:DateEdit>
+
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+        <TextBox x:Name="txtResult" Margin="10,0,10,10" TextWrapping="Wrap" Background="#FFF0F0F8" FontSize="15" FontStyle="Italic" Height="43" VerticalAlignment="Bottom" />
+        <Label x:Name="lblDate" Background="Transparent" Foreground="#FF8F8080" Margin="0,0,140,19" RenderTransformOrigin="-1.875,0.332" FontWeight="Bold" HorizontalAlignment="Right" Width="182" Height="25" VerticalAlignment="Bottom"/>
+        <Label x:Name="lblConnSts" Content="Disconnected" Background="Transparent" Foreground="#FF8F8080" Margin="0,0,50,19" RenderTransformOrigin="-1.875,0.332" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Right" Width="80" Height="25" VerticalAlignment="Bottom"/>
+        <Border x:Name="bdConnSts" CornerRadius="50" Margin="0,0,25,23" Padding="0,20,0,0" Background="#FFFF013B" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="20"/>
+        <dxe:ListBoxEdit x:Name="radioListBoxEdit" Margin="0,10,517,0" 
+                         DisplayMember="ModeName" ValueMember="ModeCode" HorizontalAlignment="Right" Width="189" Height="30" VerticalAlignment="Top">
+            <dxe:ListBoxEdit.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </dxe:ListBoxEdit.ItemsPanel>
+            <dxe:ListBoxEdit.StyleSettings>
+                <dxe:RadioListBoxEditStyleSettings />
+            </dxe:ListBoxEdit.StyleSettings>
+        </dxe:ListBoxEdit>
+
+
+    </Grid>
+
+</pt:UCFramePanel>

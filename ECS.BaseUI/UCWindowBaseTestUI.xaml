@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="ECS.BaseUI.UcWindowBaseTestUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1000">
+    
+    <DockPanel LastChildFill="True">
+        <Border x:Name="ucTitle" Height="100" DockPanel.Dock="Top" BorderThickness="1">
+            <TextBlock Background="#353942"> </TextBlock>
+        </Border>
+
+        <Border x:Name="ucNavigation" Height="0" DockPanel.Dock="Bottom">
+            <TextBlock Background="Blue">Navigation</TextBlock>
+        </Border>
+
+        <Border x:Name="ucSubNavigation" Width="200" DockPanel.Dock="Left" BorderThickness="1">
+            <TextBlock Background="WhiteSmoke"> </TextBlock>
+        </Border>
+
+        <Border x:Name="ucClient" BorderThickness="1" >
+            <TextBlock Background="WhiteSmoke"> </TextBlock>
+        </Border>
+    </DockPanel>
+</UserControl>

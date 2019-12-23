@@ -1,0 +1,32 @@
+﻿<pt:UCFrameBase 
+     xmlns:pt="clr-namespace:LGCNS.ezControl.Presentation;assembly=LGCNS.ezControl.Presentation"  
+     x:Class="ECS.Simulator.UI.UCClientMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             mc:Ignorable="d" 
+             Background="#FF262930" Width="auto" Height="auto" >
+
+    <Grid>
+        <Button x:Name="btnHUBSorter" Content="1F HUB Sorter" HorizontalAlignment="Left" Margin="20,37,0,0" VerticalAlignment="Top" Width="110" Click="btnHUBSorter_Click" Height="22"/>
+        <Button x:Name="btnSorter" Content="2F PCS Sorter" HorizontalAlignment="Left" Margin="20,64,0,0" VerticalAlignment="Top" Width="110" Click="btnSorter_Click" Height="22"/>
+
+        <Label x:Name="lblConv" Content="Conveyor" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="130" Height="30"/>
+        <Label x:Name="lblSorter" Content="Sorter" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="110" Height="30"/>
+        <Label x:Name="lblConv_Copy" Content=" - 1층" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="130" Height="30"/>
+        <Button x:Name="btnConv_1F_Wh_Insp" Content="ITS Conv." HorizontalAlignment="Left" Margin="19,146,0,0" VerticalAlignment="Top" Width="110" Click="btnConv_1F_Wh_Insp_Click" Height="22"/>
+        <Button x:Name="btnConv_MV_2F1F" Content="2층->1층 이동" HorizontalAlignment="Left" Margin="19,172,0,0" VerticalAlignment="Top" Width="110" Click="btnConv_MV_2F1F_Click" Height="22"/>
+        <Label x:Name="lblConv_Copy1" Content=" - 2층" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Width="130" Height="30"/>
+        <Button x:Name="btnConv_2F_Pre" Content="소터 Pre-Sorting" HorizontalAlignment="Left" Margin="19,224,0,0" VerticalAlignment="Top" Width="110" Click="btnConv_2F_Pre_Click" Height="22"/>
+        <Button x:Name="btnConv_2F_GI" Content="출고 무게 검수" HorizontalAlignment="Left" Margin="19,251,0,0" VerticalAlignment="Top" Width="110" Click="btnConv_2F_GI_Click" Height="22"/>
+        <Button x:Name="btnConv_2F_MV" Content="출고 층이동" HorizontalAlignment="Left" Margin="19,278,0,0" VerticalAlignment="Top" Width="110" Click="btnConv_2F_MV_Click" Height="22"/>
+        <Button x:Name="btnConv_WH" Content="입고(3F~4F)" HorizontalAlignment="Left" Margin="20,330,0,0" VerticalAlignment="Top" Width="110" Click="btnConv_WH_Click" Height="22"/>
+        <Button x:Name="btnConv_DAS" Content="통합DAS (3F~4F)" HorizontalAlignment="Left" Margin="19,357,0,0" VerticalAlignment="Top" Width="110" Click="btnConv_DAS_Click" Height="22"/>
+
+        <Label x:Name="lblConv_Copy2" Content=" - 3 ~ 4층" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="130" Height="30"/>
+
+
+    </Grid>
+</pt:UCFrameBase>
